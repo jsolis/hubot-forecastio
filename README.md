@@ -4,6 +4,10 @@ A [Hubot][1] Script that looks up weather forcast data from [forcast.io][2] with
 
 See [`src/forecastio.coffee`](src/forecastio.coffee) for full documentation.
 
+## Data
+
+[![NPM](https://nodei.co/npm/hubot-forecastio.png?downloads=true&stars=true)](https://nodei.co/npm/hubot-forecastio.png?downloads=true&stars=true)
+
 ## Installation
 
 Add **hubot-forecastio** to your `package.json` file:
