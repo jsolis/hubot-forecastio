@@ -8,13 +8,12 @@ describe 'forecastio', ->
   process.env.HUBOT_FORECAST_IO_API_KEY = '12345'
   beforeEach ->
     @robot =
-      #respond: sinon.spy()
-      hear: sinon.spy()
+      respond: sinon.spy()
 
     require('../src/forecastio')(@robot)
 
   #it 'registers a respond listener', ->
   #  expect(@robot.respond).to.have.been.calledWith(/weather in Jackson Heights, NY/)
 
-  it 'registers a hear listener', ->
-    expect(@robot.hear).to.have.been.calledWith(/weather in (.*)/i)
+  it 'registers a respond listener', ->
+    expect(@robot.respond).to.have.been.calledWith(/weather in (.*)/i)
