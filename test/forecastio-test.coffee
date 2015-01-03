@@ -5,7 +5,7 @@ chai.use require 'sinon-chai'
 expect = chai.expect
 
 describe 'forecastio', ->
-  process.env.FORECAST_IO_API_KEY = '12345'
+  process.env.HUBOT_FORECAST_IO_API_KEY = '12345'
   beforeEach ->
     @robot =
       #respond: sinon.spy()

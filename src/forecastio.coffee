@@ -5,13 +5,13 @@
 #   None
 #
 # Configuration:
-#   FORECAST_IO_API_KEY
+#   HUBOT_FORECAST_IO_API_KEY
 #
 # Commands:
 #   weather in {location}
 
-forecastIoApiKey = process.env.FORECAST_IO_API_KEY
-throw "You must set FORECAST_IO_API_KEY in your envrionment variables" unless forecastIoApiKey 
+forecastIoApiKey = process.env.HUBOT_FORECAST_IO_API_KEY
+throw "You must set HUBOT_FORECAST_IO_API_KEY in your envrionment variables" unless forecastIoApiKey 
 
 module.exports = (robot) ->
   robot.hear /weather in (.*)/i, (msg) ->
