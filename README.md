@@ -33,7 +33,7 @@ Run `npm install`
 Edit your bin/hubot file and add the environment variable FORECAST_IO_API_KEY
 
 ```
-export FORECAST_IO_API_KEY=123abc456def
+export HUBOT_FORECAST_IO_API_KEY=123abc456def
 ```
 
 You can obtain a forecast.io API key from their [developer page][3]
@@ -41,7 +41,7 @@ You can obtain a forecast.io API key from their [developer page][3]
 ## Sample Interaction
 
 ```
-jsolis>> weather in Jackson Heights, NY
+jsolis>> Hubot weather in Jackson Heights, NY
 hubot>> In Jackson Heights, Queens, NY, USA, it is currently 20.77. Feels like 10.63. Partly cloudy for the hour. Mostly cloudy throughout the day.
 ```
 
