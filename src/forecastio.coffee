@@ -5,16 +5,18 @@
 #   None
 #
 # Configuration:
-#   FORECAST_IO_API_KEY
+#   HUBOT_FORECAST_IO_API_KEY
+#   HUBOT_FORECAST_IO_UNITS
 #
 # Commands:
-#   weather in {location}
+#   hubot weather in {location}
 
-forecastIoApiKey = process.env.FORECAST_IO_API_KEY
-throw "You must set FORECAST_IO_API_KEY in your envrionment variables" unless forecastIoApiKey 
+forecastIoApiKey = process.env.HUBOT_FORECAST_IO_API_KEY
+throw "You must set HUBOT_FORECAST_IO_API_KEY in your envrionment variables" unless forecastIoApiKey
+forecastIoUnits = process.env.HUBOT_FORECAST_IO_UNITS || 'us'
 
 module.exports = (robot) ->
-  robot.hear /weather in (.*)/i, (msg) ->
+  robot.respond /weather in (.*)/i, (msg) ->
     location = encodeURI(msg.match[1])
     msg.http("http://maps.googleapis.com/maps/api/geocode/json?address=#{location}&sensor=false")
     .get() (err, res, body) ->
@@ -22,7 +24,7 @@ module.exports = (robot) ->
       formattedLocation = geocodeResponse.results[0].formatted_address
       lat = geocodeResponse.results[0].geometry.location.lat
       lng = geocodeResponse.results[0].geometry.location.lng
-      msg.http("https://api.forecast.io/forecast/#{forecastIoApiKey}/#{lat},#{lng}")
+      msg.http("https://api.forecast.io/forecast/#{forecastIoApiKey}/#{lat},#{lng}?units=#{forecastIoUnits}")
         .get() (err, res, body) ->
           forecastResponse = JSON.parse(body)
           minutely = ""
