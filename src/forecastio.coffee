@@ -12,10 +12,11 @@
 #   hubot weather in {location}
 
 forecastIoApiKey = process.env.HUBOT_FORECAST_IO_API_KEY
-throw "You must set HUBOT_FORECAST_IO_API_KEY in your envrionment variables" unless forecastIoApiKey
 forecastIoUnits = process.env.HUBOT_FORECAST_IO_UNITS || 'us'
 
 module.exports = (robot) ->
+  robot.logger.error "hubot-forecastio: You must set HUBOT_FORECAST_IO_API_KEY in your envrionment variables" unless forecastIoApiKey
+
   robot.respond /weather in (.*)/i, (msg) ->
     location = encodeURI(msg.match[1])
     msg.http("http://maps.googleapis.com/maps/api/geocode/json?address=#{location}&sensor=false")
