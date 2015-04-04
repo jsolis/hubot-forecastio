@@ -38,6 +38,17 @@ export HUBOT_FORECAST_IO_API_KEY=123abc456def
 
 You can obtain a forecast.io API key from their [developer page][3]
 
+It will default to Fahrenheit and miles per hour, or you can set the following optional variable for different units
+```
+export HUBOT_FORECAST_IO_UNITS=us
+```
+Acceptable values are:
+
+* us - [Default] Fahrenheit and miles per hour
+* ca - Celsius and kilometers per hour
+* uk - Celsius and miles per hour
+* si - Celsius and meters per second
+
 ## Sample Interaction
 
 ```
