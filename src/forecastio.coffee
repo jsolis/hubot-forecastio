@@ -15,7 +15,7 @@ forecastIoApiKey = process.env.HUBOT_FORECAST_IO_API_KEY
 forecastIoUnits = process.env.HUBOT_FORECAST_IO_UNITS || 'us'
 
 module.exports = (robot) ->
-  robot.logger.error "hubot-forecastio: You must set HUBOT_FORECAST_IO_API_KEY in your envrionment variables" unless forecastIoApiKey
+  robot.logger.error "hubot-forecastio: You must set HUBOT_FORECAST_IO_API_KEY in your environment variables" unless forecastIoApiKey
 
   robot.respond /weather in (.*)/i, (msg) ->
     location = encodeURI(msg.match[1])
